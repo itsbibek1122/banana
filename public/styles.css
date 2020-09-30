@@ -1,0 +1,464 @@
+
+.navbar-brand{
+    font-family: 'Poppins', sans-serif;
+    font-size: x-large;
+    
+  }
+
+.navbar-nav > li{
+    padding-left:10px;
+    padding-right:10px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .navbar-toggler {
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: darkslategray;
+    border: 1px solid black;
+    border-radius: .25rem;
+  }
+  
+  
+  /*for bg-img*/
+  .bgimage {
+    max-width: 100%;
+    height: auto;
+    background-image: linear-gradient(rgba(150,105,97,0.67) 0%,rgba(2,0,76,0.84)100% ),
+    url('/images/homeimg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    object-fit: cover;
+    box-sizing: content-box;
+}
+
+.page-header{
+    color: white;
+    padding-top: 8%;
+    padding-bottom: 5%;
+    max-width: 100%;
+    
+}
+a{
+  color: rgba(15, 15, 15, 0.945);
+}
+
+/*for header card below bg image*/
+
+.frontcard{
+    background-color: rgba(36,36,76,0.62);
+    line-height: 2rem;
+    height: auto;
+    align-content: center;
+    
+    
+    
+}
+.frontcard-title{
+    color: ivory;
+    font-family: 'Lato', sans-serif;
+}
+.frontcard-text{
+    color: silver;
+    font-size: 16px;
+}
+hr.new5 {
+    border: 3px solid  #FA7F28;;
+}
+/*for header text inside the bg image*/
+h1{
+    text-transform: uppercase;
+    color: white;
+    font-family:'Lato', sans-serif;
+    font-size: 66px;
+    
+}
+.button {
+    border-radius: 13px;
+    background-color:  #FA7F28;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    text-transform: uppercase;
+    font-family:'Lato', sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    width: 210px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  /*header section ends*/
+  
+  /*2nd section card*/
+
+  .icon {
+    color: black;
+    height: 5rem;
+    width: 5rem;
+    font-size: 1.75rem;
+    border-radius: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-card{
+    background-color: white;
+    line-height: 2rem;
+    height: auto;
+    align-content: center;
+    margin-top: -6%;
+    border-radius: 1rem;
+}
+
+h3{
+    text-transform: uppercase;
+    color: rgb(88, 91, 94);
+    font-family:'Lato', sans-serif;
+    font-size: 20px;
+    align-self: center;
+}
+.btn-link{
+    padding: 2.5rem;
+
+}
+hr.new4 {
+    border: 6px solid blue;
+}
+
+/*Description Section*/
+
+h2{
+    text-transform: capitalize;
+    color: black;
+    font-family:'Lato', sans-serif;
+    font-size: 36px;
+    align-self: left;
+}
+p{
+    font-family: 'Poppins', sans-serif; 
+    color: slategray;  
+}
+
+/*Recent Listing Section Begins*/
+
+.Listings{
+  font-family:'Lato', sans-serif; 
+  size: 42px;
+  align-content: center;
+  font-stretch: expanded;
+  
+}
+
+/*product cards*/
+
+
+
+
+body
+{
+    font-family:'Poppins', sans-serif; 
+}
+
+.product-card {
+    width: 330px;
+    position: relative;
+    background: white;
+    border-radius: 0.8rem;
+}
+
+.badge {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background: blue;
+    color: #fff;
+    padding: 3px 10px;
+}
+
+.product-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:white;
+}
+
+.product-tumb img {
+    max-width: 100%;
+    object-fit: fill;
+}
+
+.product-details {
+    padding: 30px;
+    text-align: center;
+    
+}
+
+.product-catagory {
+    
+    font-size: 14px;
+    color: slategray;
+    text-align: center;
+    
+    
+}
+
+.product-details h4 {
+    
+    display: block;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 0.8rem;
+    size: 52px;
+    
+    
+}
+/*room details*/
+.product-details p {
+    font-size: 15px;
+    margin-bottom: 0.8rem;
+    color: grey
+}
+/*product button*/
+.prodbutton {
+  border-radius: 13px;
+  background-color: #FA7F28;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  text-transform: uppercase;
+  font-family:'Poppins', sans-serif; 
+  font-size: 12px;
+  padding: 7px;
+  width: 147px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 5rem;
+  
+  
+}
+
+.prodbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.prodbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.prodbutton:hover span {
+  padding-right: 25px;
+}
+
+.prodbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*products section ends here*/
+/*User Testimonials*/
+
+
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  background: transparent;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: white;
+  color: rgb(3, 3, 3);
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+    text-align: center;
+    padding: 20px;
+    background: white;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: rgb(39, 38, 38);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
+
+
+
+/*testimonial section ends*/
+/*Section below the carousel begins*/
+
+.facilities{
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+ 
+}
+
+/*.card-group{
+  width: 65rem;
+}
+*/
+
+.circle-icon {
+  background: #3c39e6;
+  width: 80px;
+  height: 80px;
+  border-radius: 70%;
+  text-align: center;
+  padding: 14px;
+}
+.card{
+  align-items: center;
+  background-color: inherit;
+  border: none;
+  
+  
+}
+h6{
+  font-size: 15px;
+  font-family:'Lato', sans-serif;
+}
+
+/*Section above footer*/
+
+/* .footer-title{
+  font-size:41px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.foot-img{
+  z-index: 3;
+  
+} */
+/*footer section starts*/
+hr.new6{
+  border: 1px solid grey;
+}
+.list-unstyled{
+  font-family: 'Poppins',sans-serif;
+  
+}
+h5{
+  font-family: 'Lato',sans-serif;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
