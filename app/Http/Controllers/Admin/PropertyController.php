@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Property;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\PropertyImageGallery;
 
+use App\PropertyImageGallery;
 use Yoeunes\Toastr\Facades\Toastr;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,7 @@ class PropertyController extends Controller
 
     public function index()
     {
-        $properties = Property::latest()->withCount('comments')->get();
+        $properties = Property::latest()->get();
 
         return view('admin.properties.index', compact('properties'));
     }
@@ -26,7 +27,7 @@ class PropertyController extends Controller
 
     public function create()
     {
-        return view('admin.properties.create', compact('features'));
+        return view('admin.properties.create');
     }
 
 
@@ -45,12 +46,10 @@ class PropertyController extends Controller
             'image'     => 'required|image|mimes:jpeg,jpg,png',
             'floor_plan' => 'image|mimes:jpeg,jpg,png',
             'description'        => 'required',
-            'location_latitude'  => 'required',
-            'location_longitude' => 'required',
         ]);
 
         $image = $request->file('image');
-        $slug  = str_slug($request->title);
+        $slug  = Str::slug($request->title);
 
         if (isset($image)) {
             $currentDate = Carbon::now()->toDateString();
@@ -87,7 +86,7 @@ class PropertyController extends Controller
         $property->bedroom  = $request->bedroom;
         $property->bathroom = $request->bathroom;
         $property->city     = $request->city;
-        $property->city_slug = str_slug($request->city);
+        $property->city_slug = Str::slug($request->city);
         $property->address  = $request->address;
         $property->area     = $request->area;
 
@@ -129,7 +128,7 @@ class PropertyController extends Controller
 
     public function show(Property $property)
     {
-        $property = Property::withCount('comments')->find($property->id);
+        $property = Property::find($property->id);
 
         $videoembed = $this->convertYoutube($property->video, 560, 315);
 
@@ -143,7 +142,7 @@ class PropertyController extends Controller
 
         $videoembed = $this->convertYoutube($property->video);
 
-        return view('admin.properties.edit', compact('property', 'features', 'videoembed'));
+        return view('admin.properties.edit', compact('property', 'videoembed'));
     }
 
 
@@ -165,7 +164,7 @@ class PropertyController extends Controller
         ]);
 
         $image = $request->file('image');
-        $slug  = str_slug($request->title);
+        $slug  = Str::slug($request->title);
 
         $property = Property::find($property->id);
 
@@ -213,7 +212,7 @@ class PropertyController extends Controller
         $property->bedroom      = $request->bedroom;
         $property->bathroom     = $request->bathroom;
         $property->city         = $request->city;
-        $property->city_slug    = str_slug($request->city);
+        $property->city_slug    = Str::slug($request->city);
         $property->address      = $request->address;
         $property->area         = $request->area;
 
@@ -228,8 +227,6 @@ class PropertyController extends Controller
         $property->floor_plan   = $imagefloorplan;
         $property->nearby             = $request->nearby;
         $property->save();
-
-        $property->features()->sync($request->features);
 
         $gallary = $request->file('gallaryimage');
         if ($gallary) {
@@ -278,8 +275,6 @@ class PropertyController extends Controller
                 PropertyImageGallery::destroy($gallery->id);
             }
         }
-
-        $property->features()->detach();
         $property->comments()->delete();
 
         Toastr::success('message', 'Property deleted successfully.');

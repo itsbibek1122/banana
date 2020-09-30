@@ -7,6 +7,7 @@ use App\Message;
 use App\Property;
 use Carbon\Carbon;
 use App\Mail\Contact;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Yoeunes\Toastr\Facades\Toastr;
 use App\Http\Controllers\Controller;
@@ -47,7 +48,7 @@ class DashboardController extends Controller
         $user = User::find(Auth::id());
 
         $image = $request->file('image');
-        $slug  = str_slug($request->name);
+        $slug  = Str::slug($request->name);
 
         if (isset($image)) {
             $currentDate = Carbon::now()->toDateString();

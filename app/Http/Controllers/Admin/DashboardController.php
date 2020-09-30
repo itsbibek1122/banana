@@ -101,7 +101,7 @@ class DashboardController extends Controller
         $user = User::find(Auth::id());
 
         $image = $request->file('image');
-        $slug  = str_slug($request->name);
+        $slug  = Str::slug($request->name);
 
         if (isset($image)) {
             $currentDate = Carbon::now()->toDateString();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Agent;
 use File;
 use App\Property;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\PropertyImageGallery;
 use Yoeunes\Toastr\Facades\Toastr;
@@ -18,7 +19,6 @@ class PropertyController extends Controller
     public function index()
     {
         $properties = Property::latest()
-                              ->withCount('comments')
                               ->where('agent_id', Auth::id())
                               ->paginate(10);
         
@@ -27,7 +27,7 @@ class PropertyController extends Controller
 
     public function create()
     {   
-        return view('agent.properties.create',compact('features'));
+        return view('agent.properties.create');
     }
 
     public function store(Request $request)
@@ -48,7 +48,7 @@ class PropertyController extends Controller
         ]);
 
         $image = $request->file('image');
-        $slug  = str_slug($request->title);
+        $slug  = Str::slug($request->title);
 
         if(isset($image)){
             $currentDate = Carbon::now()->toDateString();
@@ -87,7 +87,7 @@ class PropertyController extends Controller
         $property->bedroom  = $request->bedroom;
         $property->bathroom = $request->bathroom;
         $property->city     = $request->city;
-        $property->city_slug= str_slug($request->city);
+        $property->city_slug= Str::slug($request->city);
         $property->address  = $request->address;
         $property->area     = $request->area;
 
@@ -100,9 +100,6 @@ class PropertyController extends Controller
         $property->description        = $request->description;
         $property->nearby             = $request->nearby;
         $property->save();
-
-        $property->features()->attach($request->features);
-
 
         $gallary = $request->file('gallaryimage');
 
@@ -134,7 +131,7 @@ class PropertyController extends Controller
     {   
         $property = Property::where('slug',$property->slug)->first();
 
-        return view('agent.properties.edit',compact('property','features'));
+        return view('agent.properties.edit',compact('property'));
     }
 
 
@@ -158,7 +155,7 @@ class PropertyController extends Controller
         ]);
 
         $image = $request->file('image');
-        $slug  = str_slug($request->title);
+        $slug  = Str::slug($request->title);
 
         $property = Property::find($property->id);
 
@@ -208,7 +205,7 @@ class PropertyController extends Controller
         $property->bedroom  = $request->bedroom;
         $property->bathroom = $request->bathroom;
         $property->city     = $request->city;
-        $property->city_slug= str_slug($request->city);
+        $property->city_slug= Str::slug($request->city);
         $property->address  = $request->address;
         $property->area     = $request->area;
 
